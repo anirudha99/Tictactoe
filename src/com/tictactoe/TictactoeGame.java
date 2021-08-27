@@ -3,13 +3,16 @@ package com.tictactoe;
 import java.util.Scanner;
 
 public class TictactoeGame {
-	
+
 	//Initialising the board
 	static char[] board = new char[10];
-	
+
 	//@param for letter choice by user and computer
 	public static char letter_choice_player,letter_choice_computer;
-	
+
+	//Initialising scanner
+	static Scanner sc = new Scanner(System.in);
+
 	/**
 	 * @method to create board with empty space
 	 */
@@ -26,7 +29,6 @@ public class TictactoeGame {
 	 */
 	public static void letterChoice() {
 		System.out.println("Please enter your choice\n X or O ");
-		Scanner sc = new Scanner(System.in);
 		letter_choice_player = sc.next().charAt(0);
 		if(letter_choice_player == 'X') { 
 			letter_choice_computer = 'O';
@@ -50,6 +52,20 @@ public class TictactoeGame {
 	}
 
 	/**
+	 * @method To allow user to select location value in box to play
+	 * Location value between 1 to 9
+	 */
+	public static void selectLocation() {
+		System.out.println("Please enter the index value you want to play");
+		int location = sc.nextInt();
+		if(location < 1 || location > 9)	//check if index is between 1 and 9
+		{
+			System.out.println("Please enter the location value between 1 and 9!!");
+			selectLocation();
+		}	
+	}
+
+	/**
 	 * Main method
 	 */
 	public static void main(String[] args) {
@@ -57,6 +73,7 @@ public class TictactoeGame {
 		TictactoeGame tictactoe = new TictactoeGame();
 		tictactoe.createBoard();
 		letterChoice();
+		selectLocation();
 		dispBoard();
 
 	}
