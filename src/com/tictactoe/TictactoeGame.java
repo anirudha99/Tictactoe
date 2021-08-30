@@ -118,7 +118,6 @@ public class TictactoeGame {
 		{
 			computerGame();
 		}
-
 	}
 
 	/**
@@ -294,15 +293,43 @@ public class TictactoeGame {
 			computerPlay();			
 		}
 		dispBoard();
+		checkWinner();
+		displayWinner();
 		selectLocation();
 	}
-	public static void computerPlay()
+
+	/**
+	 * @method to select random number location
+	 */
+	public static void randSelect()
 	{
 		int computer_index=rand.nextInt(9)+1;
 		if(board[computer_index]==' ')
 			board[computer_index]=letter_choice_computer;
 		else
-			computerPlay();
+			randSelect();
+	}
+
+	/**
+	 * @method to select computer move i.e take corner positions first or else go to random
+	 */
+	public static void computerPlay()
+	{
+		int corner[]= {1,3,7,9};//to check for corner values
+		int flag=0;
+		for(int i=0;i<4;i++)
+		{
+			if(board[corner[i]]==' ')
+			{
+				board[corner[i]]=letter_choice_computer;
+				flag=1;
+				break;
+			}
+		}
+		if(flag==0)
+		{
+			randSelect();
+		}
 	}
 
 	/**
