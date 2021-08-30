@@ -213,6 +213,9 @@ public class TictactoeGame {
 		}
 	}
 
+	/**
+	 * @method to check the computer game
+	 */
 	public static void computerGame() {
 		turn = "computer";
 		System.out.println("Computer is playing!!!");	
@@ -250,43 +253,6 @@ public class TictactoeGame {
 		}
 		else if((board[9]==' ')&&(board[1]==board[5]&&board[5]==letter_choice_computer)||(board[6]==board[3]&&board[3]==letter_choice_computer)||(board[8]==board[7]&&board[7]==letter_choice_computer))
 		{
-			board[9]=letter_choice_computer;
-		}
-		//blocking position condition
-		else if((board[1]==' ')&&(board[2]==board[3]&&board[2]==letter_choice_player)||(board[4]==board[7]&&board[4]==letter_choice_player)||(board[5]==board[9]&&board[5]==letter_choice_player))
-		{
-			board[1]=letter_choice_computer;	
-		}
-		else if((board[2]==' ')&&(board[1]==board[3]&&board[3]==letter_choice_player)||(board[5]==board[8]&&board[8]==letter_choice_player))
-		{
-			board[2]=letter_choice_computer;
-		}
-		else if((board[3]==' ')&&(board[1]==board[2]&&board[2]==letter_choice_player)||(board[6]==board[9]&&board[9]==letter_choice_player)||(board[5]==board[7]&&board[7]==letter_choice_player))
-		{
-			board[3]=letter_choice_computer;
-		}
-		else  if((board[4]==' ')&&(board[1]==board[7]&&board[1]==letter_choice_player)||(board[5]==board[6]&&board[6]==letter_choice_player))
-		{
-			board[4]=letter_choice_computer;
-		}	
-		else if((board[5]==' ')&&(board[1]==board[9]&&board[2]==letter_choice_player)||(board[7]==board[3]&&board[7]==letter_choice_player)||(board[2]==board[8]&&board[8]==letter_choice_player)||(board[4]==board[6]&&board[6]==letter_choice_player))
-		{
-			board[5]=letter_choice_computer;
-		}
-		else if((board[6]==' ')&&(board[9]==board[3]&&board[3]==letter_choice_player)||(board[5]==board[4]&&board[4]==letter_choice_player))
-		{
-			board[6]=letter_choice_computer;
-		}
-		else 	if((board[7]==' ')&&(board[1]==board[4]&&board[4]==letter_choice_player)||(board[6]==board[9]&&board[9]==letter_choice_player)||(board[5]==board[7]&&board[7]==letter_choice_player))
-		{
-			board[7]=letter_choice_computer;
-		}
-		else if((board[8]==' ')&&(board[9]==board[7]&&board[7]==letter_choice_player)||(board[2]==board[5]&&board[2]==letter_choice_player))
-		{
-			board[8]=letter_choice_computer;
-		}
-		else if((board[9]==' ')&&(board[1]==board[5]&&board[5]==letter_choice_player)||(board[6]==board[3]&&board[3]==letter_choice_player)||(board[8]==board[7]&&board[7]==letter_choice_player))
-		{	
 			board[9]=letter_choice_computer;
 		}
 		else {
