@@ -1,6 +1,6 @@
 package com.tictactoe;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class TictactoeGame {
 
@@ -9,6 +9,10 @@ public class TictactoeGame {
 
 	//@param for letter choice by user and computer
 	public static char letter_choice_player,letter_choice_computer;
+	
+	public static Random rand=new Random();
+	
+	public static String turn;
 
 	//Initialising scanner
 	static Scanner sc = new Scanner(System.in);
@@ -64,6 +68,28 @@ public class TictactoeGame {
 			selectLocation();
 		}	
 	}
+	
+	public static void toss()
+	{
+		System.out.println("Enter your choice \n 0.Head\n 1.Tail");
+		int choice=sc.nextInt();	
+		
+		/* a random number is chosen between 1 or 0
+		 * if its 0 then head or if it is 1 its tail
+		 */
+		int toss_choice=rand.nextInt(2);						
+		if(choice==toss_choice)
+		{
+			System.out.println("Its player's turn!!!");
+			turn="player";	
+		}
+		else
+		{
+			System.out.println("Its computer's turn!!!");
+			turn="computer";
+		}
+		
+	}
 
 	/**
 	 * Main method
@@ -73,6 +99,8 @@ public class TictactoeGame {
 		TictactoeGame tictactoe = new TictactoeGame();
 		tictactoe.createBoard();
 		letterChoice();
+		toss();
+		dispBoard();
 		selectLocation();
 		dispBoard();
 
