@@ -328,7 +328,12 @@ public class TictactoeGame {
 		}
 		if(flag==0)
 		{
-			randSelect();
+			if(board[5] == ' ') {
+				board[5] = letter_choice_computer;
+			}
+			else {
+				randSelect();
+			}
 		}
 	}
 
