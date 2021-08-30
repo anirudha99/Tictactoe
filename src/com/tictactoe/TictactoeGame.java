@@ -345,8 +345,5 @@ public class TictactoeGame {
 		createBoard();
 		letterChoice();
 		toss();
-
-
 	}
-
 }
