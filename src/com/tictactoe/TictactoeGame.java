@@ -169,7 +169,7 @@ public class TictactoeGame {
 			}
 		}
 		int i;
-		for(i = 1;i <= 9;i++) {
+		for(i = 1;i < 9;i++) {
 			if (board[i]==' ') 
 			{
 				break;
@@ -189,15 +189,15 @@ public class TictactoeGame {
 		char winner = checkWinner();
 		if (winner == letter_choice_player) {
 			System.out.println("Congrats!You are the winner!");
-			System.exit(0);
+			playAgain();
 		}
 		else if(winner == letter_choice_computer) {
 			System.out.println("You lost! Computer is the winner!");
-			System.exit(0);
+			playAgain();
 		}
 		else if(winner == 'd') {
 			System.out.println("Game is tied");
-			System.exit(0);
+			playAgain();
 		}
 		else {
 			if(turn == "player") {
@@ -335,6 +335,26 @@ public class TictactoeGame {
 				randSelect();
 			}
 		}
+	}
+
+	/**
+	 * @method to play or repeat the game again after it ends
+	 */
+	public static void playAgain()
+	{
+		System.out.println("Do you want to play again??\nPress 0 to play again\nPress 1 to exit");
+		int choice = sc.nextInt();
+		if(choice == 0)
+		{
+			createBoard();	//initialising the board
+			letterChoice();   //@method to enter input X or O			
+			toss();
+		}
+		else {
+			System.out.println("Thank you!");
+			System.exit(0);
+		}
+
 	}
 
 	/**
