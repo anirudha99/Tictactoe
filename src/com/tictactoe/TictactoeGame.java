@@ -9,10 +9,12 @@ public class TictactoeGame {
 
 	//@param for letter choice by user and computer
 	public static char letter_choice_player,letter_choice_computer;
-	
+
 	public static Random rand=new Random();
-	
+
 	public static String turn;
+
+	public static int location;
 
 	//Initialising scanner
 	static Scanner sc = new Scanner(System.in);
@@ -20,7 +22,7 @@ public class TictactoeGame {
 	/**
 	 * @method to create board with empty space
 	 */
-	public void createBoard() {
+	public static void createBoard() {
 		for (int i = 1; i < board.length; i++) {
 			board[i] = ' ';
 		}
@@ -60,7 +62,7 @@ public class TictactoeGame {
 	 * Location value between 1 to 9
 	 */
 	public static void selectLocation() {
-		System.out.println("Please enter the index value you want to play");
+		System.out.println("Please enter the index value (position) you want to play");
 		int location = sc.nextInt();
 		if(location < 1 || location > 9)	//check if index is between 1 and 9
 		{
@@ -68,12 +70,29 @@ public class TictactoeGame {
 			selectLocation();
 		}	
 	}
-	
+
+	/*@method moves to desired location
+	 * if the space is free
+	 */
+	public static void desiredMove() {
+		if(board[location] == ' ') { 			//check if index is free
+			System.out.println("Empty");
+			board[location] = letter_choice_player;
+		}
+		else
+		{
+			System.out.println("Please enter different index, current one is already filled");
+			selectLocation();					//@call select location method
+			desiredMove();
+		}
+		dispBoard();
+	}
+
 	public static void toss()
 	{
-		System.out.println("Enter your choice \n 0.Head\n 1.Tail");
+		System.out.println("Enter your choice for turn\n 0.Head\n 1.Tail");
 		int choice=sc.nextInt();	
-		
+
 		/* a random number is chosen between 1 or 0
 		 * if its 0 then head or if it is 1 its tail
 		 */
@@ -88,7 +107,7 @@ public class TictactoeGame {
 			System.out.println("Its computer's turn!!!");
 			turn="computer";
 		}
-		
+
 	}
 
 	/**
@@ -96,13 +115,12 @@ public class TictactoeGame {
 	 */
 	public static void main(String[] args) {
 		System.out.println("Welcome to Tic-Tac-Toe game");
-		TictactoeGame tictactoe = new TictactoeGame();
-		tictactoe.createBoard();
+		createBoard();
 		letterChoice();
 		toss();
 		dispBoard();
 		selectLocation();
-		dispBoard();
+		desiredMove();
 
 	}
 
