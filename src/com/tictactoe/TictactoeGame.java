@@ -42,6 +42,12 @@ public class TictactoeGame {
 	public static void letterChoice() {
 		System.out.println("Please enter your choice\n X or O ");
 		letter_choice_player = sc.next().charAt(0);
+		if(letter_choice_player == 'x' || letter_choice_player == 'X') {
+			letter_choice_player = 'X';
+		}
+		else if (letter_choice_player == 'o' || letter_choice_player == 'O') {
+			letter_choice_player = 'O';
+		}
 		if(letter_choice_player == 'X') { 
 			letter_choice_computer = 'O';
 		}
@@ -69,7 +75,7 @@ public class TictactoeGame {
 	 */
 	public static void selectLocation() {
 		turn = "player";
-		System.out.println("Please enter the index value (position) you want to play");
+		System.out.println("Please enter the position you want to play");
 		location = sc.nextInt();
 		if(location < 1 || location > 9)	//check if index is between 1 and 9
 		{
@@ -179,7 +185,6 @@ public class TictactoeGame {
 			return 'd';
 		else
 			return 'n';
-
 	}
 
 	/**
@@ -216,7 +221,7 @@ public class TictactoeGame {
 	public static void computerGame() {
 		turn = "computer";
 		System.out.println("Computer is playing!!!");	
-		if((board[1]==' ')&&(board[2]==board[3]&&board[2]==letter_choice_computer)||(board[4]==board[7]&&board[4]==letter_choice_computer)||(board[5]==board[9]&&board[5]==letter_choice_computer))
+		if((board[1]==' ')&&((board[2]==board[3]&&board[2]==letter_choice_computer)||(board[4]==board[7]&&board[4]==letter_choice_computer)||(board[5]==board[9]&&board[5]==letter_choice_computer)))
 		{
 			board[1]=letter_choice_computer;			
 		}
@@ -224,68 +229,68 @@ public class TictactoeGame {
 		{
 			board[2]=letter_choice_computer;
 		}
-		else if((board[3]==' ')&&(board[1]==board[2]&&board[2]==letter_choice_computer)||(board[6]==board[9]&&board[9]==letter_choice_computer)||(board[5]==board[7]&&board[7]==letter_choice_computer))
+		else if((board[3]==' ')&&((board[1]==board[2]&&board[2]==letter_choice_computer)||(board[6]==board[9]&&board[9]==letter_choice_computer)||(board[5]==board[7]&&board[7]==letter_choice_computer)))
 		{
 			board[3]=letter_choice_computer;
 		}
-		else if((board[4]==' ')&&(board[1]==board[7]&&board[1]==letter_choice_computer)||(board[5]==board[6]&&board[6]==letter_choice_computer))
+		else if((board[4]==' ')&&((board[1]==board[7]&&board[1]==letter_choice_computer)||(board[5]==board[6]&&board[6]==letter_choice_computer)))
 		{
 			board[4]=letter_choice_computer;
 		}
-		else if((board[5]==' ')&&(board[1]==board[9]&&board[2]==letter_choice_computer)||(board[7]==board[3]&&board[7]==letter_choice_computer)||(board[2]==board[8]&&board[8]==letter_choice_computer)||(board[4]==board[6]&&board[6]==letter_choice_computer))
+		else if((board[5]==' ')&&((board[1]==board[9]&&board[2]==letter_choice_computer)||(board[7]==board[3]&&board[7]==letter_choice_computer)||(board[2]==board[8]&&board[8]==letter_choice_computer)||(board[4]==board[6]&&board[6]==letter_choice_computer)))
 		{
 			board[5]=letter_choice_computer;
 		}
-		else if((board[6]==' ')&&(board[9]==board[3]&&board[3]==letter_choice_computer)||(board[5]==board[4]&&board[4]==letter_choice_computer))
+		else if((board[6]==' ')&&((board[9]==board[3]&&board[3]==letter_choice_computer)||(board[5]==board[4]&&board[4]==letter_choice_computer)))
 		{
 			board[6]=letter_choice_computer;
 		}
-		else if((board[7]==' ')&&(board[1]==board[4]&&board[4]==letter_choice_computer)||(board[3]==board[5]&&board[3]==letter_choice_computer)||(board[8]==board[9]&&board[8]==letter_choice_computer))
+		else if((board[7]==' ')&&((board[1]==board[4]&&board[4]==letter_choice_computer)||(board[3]==board[5]&&board[3]==letter_choice_computer)||(board[8]==board[9]&&board[8]==letter_choice_computer)))
 		{
 			board[3]=letter_choice_computer;
 		}
-		else if((board[8]==' ')&&(board[9]==board[7]&&board[7]==letter_choice_computer)||(board[2]==board[5]&&board[2]==letter_choice_computer))
+		else if((board[8]==' ')&&((board[9]==board[7]&&board[7]==letter_choice_computer)||(board[2]==board[5]&&board[2]==letter_choice_computer)))
 		{
 			board[8]=letter_choice_computer;
 		}
-		else if((board[9]==' ')&&(board[1]==board[5]&&board[5]==letter_choice_computer)||(board[6]==board[3]&&board[3]==letter_choice_computer)||(board[8]==board[7]&&board[7]==letter_choice_computer))
+		else if((board[9]==' ')&&((board[1]==board[5]&&board[5]==letter_choice_computer)||(board[6]==board[3]&&board[3]==letter_choice_computer)||(board[8]==board[7]&&board[7]==letter_choice_computer)))
 		{
 			board[9]=letter_choice_computer;
 		}
 		//blocking position condition
-		else if((board[1]==' ')&&(board[2]==board[3]&&board[2]==letter_choice_player)||(board[4]==board[7]&&board[4]==letter_choice_player)||(board[5]==board[9]&&board[5]==letter_choice_player))
+		else if((board[1]==' ')&&((board[2]==board[3]&&board[2]==letter_choice_player)||(board[4]==board[7]&&board[4]==letter_choice_player)||(board[5]==board[9]&&board[5]==letter_choice_player)))
 		{
 			board[1]=letter_choice_computer;	
 		}
-		else if((board[2]==' ')&&(board[1]==board[3]&&board[3]==letter_choice_player)||(board[5]==board[8]&&board[8]==letter_choice_player))
+		else if((board[2]==' ')&&((board[1]==board[3]&&board[3]==letter_choice_player)||(board[5]==board[8]&&board[8]==letter_choice_player)))
 		{
 			board[2]=letter_choice_computer;
 		}
-		else if((board[3]==' ')&&(board[1]==board[2]&&board[2]==letter_choice_player)||(board[6]==board[9]&&board[9]==letter_choice_player)||(board[5]==board[7]&&board[7]==letter_choice_player))
+		else if((board[3]==' ')&&((board[1]==board[2]&&board[2]==letter_choice_player)||(board[6]==board[9]&&board[9]==letter_choice_player)||(board[5]==board[7]&&board[7]==letter_choice_player)))
 		{
 			board[3]=letter_choice_computer;
 		}
-		else  if((board[4]==' ')&&(board[1]==board[7]&&board[1]==letter_choice_player)||(board[5]==board[6]&&board[6]==letter_choice_player))
+		else  if((board[4]==' ')&&((board[1]==board[7]&&board[1]==letter_choice_player)||(board[5]==board[6]&&board[6]==letter_choice_player)))
 		{
 			board[4]=letter_choice_computer;
 		}	
-		else if((board[5]==' ')&&(board[1]==board[9]&&board[2]==letter_choice_player)||(board[7]==board[3]&&board[7]==letter_choice_player)||(board[2]==board[8]&&board[8]==letter_choice_player)||(board[4]==board[6]&&board[6]==letter_choice_player))
+		else if((board[5]==' ')&&((board[1]==board[9]&&board[1]==letter_choice_player)||(board[7]==board[3]&&board[7]==letter_choice_player)||(board[2]==board[8]&&board[8]==letter_choice_player)||(board[4]==board[6]&&board[6]==letter_choice_player)))
 		{
 			board[5]=letter_choice_computer;
 		}
-		else if((board[6]==' ')&&(board[9]==board[3]&&board[3]==letter_choice_player)||(board[5]==board[4]&&board[4]==letter_choice_player))
+		else if((board[6]==' ')&&((board[9]==board[3]&&board[3]==letter_choice_player)||(board[5]==board[4]&&board[4]==letter_choice_player)))
 		{
 			board[6]=letter_choice_computer;
 		}
-		else 	if((board[7]==' ')&&(board[1]==board[4]&&board[4]==letter_choice_player)||(board[6]==board[9]&&board[9]==letter_choice_player)||(board[5]==board[7]&&board[7]==letter_choice_player))
+		else 	if((board[7]==' ')&&((board[1]==board[4]&&board[4]==letter_choice_player)||(board[6]==board[9]&&board[9]==letter_choice_player)||(board[5]==board[7]&&board[7]==letter_choice_player)))
 		{
 			board[7]=letter_choice_computer;
 		}
-		else if((board[8]==' ')&&(board[9]==board[7]&&board[7]==letter_choice_player)||(board[2]==board[5]&&board[2]==letter_choice_player))
+		else if((board[8]==' ')&&((board[9]==board[7]&&board[7]==letter_choice_player)||(board[2]==board[5]&&board[2]==letter_choice_player)))
 		{
 			board[8]=letter_choice_computer;
 		}
-		else if((board[9]==' ')&&(board[1]==board[5]&&board[5]==letter_choice_player)||(board[6]==board[3]&&board[3]==letter_choice_player)||(board[8]==board[7]&&board[7]==letter_choice_player))
+		else if((board[9]==' ')&&((board[1]==board[5]&&board[5]==letter_choice_player)||(board[6]==board[3]&&board[3]==letter_choice_player)||(board[8]==board[7]&&board[7]==letter_choice_player)))
 		{	
 			board[9]=letter_choice_computer;
 		}
@@ -329,7 +334,7 @@ public class TictactoeGame {
 		if(flag==0)
 		{
 			if(board[5] == ' ') {
-				board[5] = letter_choice_computer;
+				board[5] = letter_choice_computer; //use case 5 : Central move
 			}
 			else {
 				randSelect();
